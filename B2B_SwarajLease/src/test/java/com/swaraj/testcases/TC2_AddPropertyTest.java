@@ -4,6 +4,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.swaraj.pageobjects.loginPage;
+import com.swaraj.pageobjects.propertyPage;
 import com.swaraj.pageobjects.welcomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,7 +12,7 @@ import org.testng.annotations.Test;
 public class TC2_AddPropertyTest extends BaseClass{
 	
 	@Test
-	public void VerifyLogin() throws IOException 
+	public void VerifyLogin() throws IOException, InterruptedException 
 	{
 
 		logger.info("***************TestCase Verify Login starts*****************"); 
@@ -31,6 +32,29 @@ public class TC2_AddPropertyTest extends BaseClass{
 
 		loginpg.clickLogIn();
 		logger.info("Clicked on login button..");
+		Thread.sleep(5000);
+		
+		propertyPage proppg = new propertyPage(driver);
+		
+		proppg.clickPropTab();
+		logger.info("Clicked on Property tab");
+		
+		proppg.clickAddproperty_btn();
+		logger.info("Clicked on AddProperty button, Add property pop-up displayed");
+		
+		proppg.enterPropName("autoProperty");
+		proppg.enterPropAdds("Udupi");
+		proppg.selectType("Commercial");
+		proppg.selectState("Karnataka");
+		proppg.selectLocation("Loc1");
+		proppg.enterunitName_txt("unit1");
+		proppg.enterunitDesc_txt("shopping complex");
+		proppg.enterunitIncPrct_txt("5");
+		proppg.enterareaSqft_txt("1000");
+		Thread.sleep(5000);
+		proppg.entermarketRate_txt("10");
+		proppg.clickAddAnotherUnit_btn();
+		
 		
 
 
