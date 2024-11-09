@@ -34,7 +34,7 @@ public class BaseClass {
 	public static Logger logger;
 
 	@BeforeClass
-	public void setup()
+	public void setup() throws InterruptedException
 	{
 
 		//launch browser
@@ -69,17 +69,22 @@ public class BaseClass {
 		//open url
 		driver.get(url);
 		logger.info("url opened");
+		
+		//Mazimize current window
+		driver.manage().window().maximize();
 
-	}
+		//Delay execution for 5 seconds to view the maximize operation
+		Thread.sleep(5000);
+}
 
 
 
-	@AfterClass
-	public void tearDown()
-	{
-		driver.close();
-		driver.quit();
-	}
+//	@AfterClass
+//	public void tearDown()
+//	{
+//		driver.close();
+//		driver.quit();
+//	}
 
 	
 	//user method to capture screen shot

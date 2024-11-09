@@ -1,14 +1,21 @@
 package com.swaraj.pageobjects;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class propertyPage {
 	
 	WebDriver ldriver;
+	private WebDriverWait wait;
 
 	//constructor
 	public propertyPage(WebDriver rdriver)
@@ -28,12 +35,21 @@ public class propertyPage {
 		WebElement propName_txt1;
 		@FindBy(xpath = "//textarea[@id='propertyAddress']") 
 		WebElement propAdds_txt;
-		@FindBy(xpath = "//span[normalize-space()='Select Type']") 
+		
+		@FindBy(xpath = "(//div[@class=\" css-1w5oz2q-indicatorContainer\"])[1]") 
 		WebElement type_DD;
+//		@FindBy(xpath = "//div[@class=' css-14s42b7-singleValue']") 
+//		WebElement commercial_DD;
+		
 		@FindBy(xpath = "//div[@class=' css-78rtvi']") 
 		WebElement state_DD;
+		@FindBy(xpath = "//*[text()='Karnataka']") 
+		WebElement karnataka_DD;
+		
 		@FindBy(xpath = "//span[normalize-space()='Select Location']") 
-		WebElement location_DD;
+		WebElement location_DD;		
+		@FindBy(xpath = "//div[contains(@class,'css-14s42b7-singleValue')][normalize-space()='Loc1']") 
+		WebElement Loc1_DD;
 		
 		@FindBy(xpath = "//input[@id='unitName']") 
 		WebElement unitName_txt;
@@ -43,11 +59,11 @@ public class propertyPage {
 		WebElement unitRentPM_txt;
 		@FindBy(xpath = "//input[@id='unitInc']")
 		WebElement unitIncPrct_txt;
-		
-		@FindBy(xpath = "//body/div[@id='modal-hook']/div[@class='modal-container modal-centered property-modal']/form[@class='modal-scrollable mt-4']/div[1]/div[1]/div[1]/input[1]") 
+		@FindBy(xpath = "//div[@class=' ']//input[@id='unitName']") 
 		WebElement areaSqft_txt;
 		@FindBy(xpath = "(//input[@class=\"label-content\"])[5]") 
 		WebElement marketRate_txt;
+		
 		@FindBy(xpath = "//button[normalize-space()='Add Another Unit']") 
 		WebElement AddAnotherUnit_btn;
 		
@@ -63,35 +79,55 @@ public class propertyPage {
 			addproperty_btn.click();
 		}
 		
+//		pop-up
 		public void enterPropName(String propName) 
 		{
 			propName_txt1.sendKeys(propName);
 		}
-
 
 		public void enterPropAdds(String propAdds) 
 		{
 			propAdds_txt.sendKeys(propAdds);
 		}
 		
-		public void selectType(String text) 
+		//select property type
+		
+
+		public void selectType() throws InterruptedException 
 		{
-			Select obj1=new Select(type_DD);
-			obj1.selectByVisibleText(text);
+			Actions action = new Actions(ldriver);
+			action.moveToElement(type_DD).click().build().perform();
+			Thread.sleep(2000);
+			Actions keyDown = new Actions(ldriver); 
+			keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();
+			Thread.sleep(2000);
 		}
 		
-		public void selectState(String text) 
+		//select state
+		public void clickstate_DD() throws InterruptedException 
 		{
-			Select obj2=new Select(state_DD);
-			obj2.selectByVisibleText(text);
+			Actions action = new Actions(ldriver);
+			action.moveToElement(state_DD).click().build().perform();
+			Thread.sleep(2000);
+		}
+			
+		public void clickkar_DD() throws InterruptedException
+		{
+			Actions action1 = new Actions(ldriver);
+			action1.moveToElement(karnataka_DD).click().build().perform();
 		}
 		
-		public void selectLocation(String text) 
+		//select location
+		public void clicklocation_DD() throws InterruptedException 
 		{
-			Select obj3=new Select(location_DD);
-			obj3.selectByVisibleText(text);
+			Actions action = new Actions(ldriver);
+			action.moveToElement(location_DD).click().build().perform();
+			Thread.sleep(2000);
+			Actions keyDown = new Actions(ldriver); 
+			keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();
+			Thread.sleep(2000);
 		}
-		
+		//unit detail
 		public void enterunitName_txt(String unitName) 
 		{
 			unitName_txt.sendKeys(unitName);
@@ -100,6 +136,10 @@ public class propertyPage {
 		public void enterunitDesc_txt(String unitDes) 
 		{
 			unitDesc_txt.sendKeys(unitDes);
+		}
+		public void enterunitRentPM_txt(String unitRentPM) 
+		{
+			unitRentPM_txt.sendKeys(unitRentPM);
 		}
 		
 		public void enterunitIncPrct_txt(String unitInt) 
@@ -111,9 +151,10 @@ public class propertyPage {
 		{
 			areaSqft_txt.sendKeys(areaSqft);
 		}
-		public void entermarketRate_txt(String marketRate) 
+		public void entermarketRate_txt(String marketRate) throws InterruptedException 
 		{
 			unitIncPrct_txt.sendKeys(marketRate);
+			Thread.sleep(4000);
 		}
 		
 		public void clickAddAnotherUnit_btn() 

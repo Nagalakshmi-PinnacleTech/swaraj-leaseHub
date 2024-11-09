@@ -44,16 +44,21 @@ public class TC2_AddPropertyTest extends BaseClass{
 		
 		proppg.enterPropName("autoProperty");
 		proppg.enterPropAdds("Udupi");
-		proppg.selectType("Commercial");
-		proppg.selectState("Karnataka");
-		proppg.selectLocation("Loc1");
+		
+		proppg.selectType();
+		proppg.clickstate_DD();
+		proppg.clickkar_DD();
+		proppg.clicklocation_DD();
 		proppg.enterunitName_txt("unit1");
 		proppg.enterunitDesc_txt("shopping complex");
+		proppg.enterunitRentPM_txt("1000");
 		proppg.enterunitIncPrct_txt("5");
 		proppg.enterareaSqft_txt("1000");
 		Thread.sleep(5000);
 		proppg.entermarketRate_txt("10");
+		Thread.sleep(2000);
 		proppg.clickAddAnotherUnit_btn();
+		Thread.sleep(2000);
 		
 		
 
