@@ -64,7 +64,7 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 		//for logging
-		logger = LogManager.getLogger("Swaraj_lease_b2b");
+		logger = LogManager.getLogger("B2B_SwarajLease");
 		
 		//open url
 		driver.get(url);

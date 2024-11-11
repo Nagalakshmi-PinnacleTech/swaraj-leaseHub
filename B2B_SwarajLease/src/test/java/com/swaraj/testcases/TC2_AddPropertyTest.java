@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class TC2_AddPropertyTest extends BaseClass{
 	
 	@Test
-	public void VerifyLogin() throws IOException, InterruptedException 
+	public void LoginToApplication() throws IOException, InterruptedException 
 	{
 
 		logger.info("***************TestCase Verify Login starts*****************"); 
@@ -33,6 +33,12 @@ public class TC2_AddPropertyTest extends BaseClass{
 		loginpg.clickLogIn();
 		logger.info("Clicked on login button..");
 		Thread.sleep(5000);
+	}
+		
+	public void AddProperty() throws InterruptedException 
+	{
+		
+		logger.info("***************Add property starts*****************");
 		
 		propertyPage proppg = new propertyPage(driver);
 		
@@ -59,11 +65,6 @@ public class TC2_AddPropertyTest extends BaseClass{
 		Thread.sleep(2000);
 		proppg.clickAddAnotherUnit_btn();
 		Thread.sleep(2000);
-		
-		
-
-
-
-	}
+		}
 
 }
