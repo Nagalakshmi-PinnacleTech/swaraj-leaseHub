@@ -33,10 +33,10 @@ public class TC2_AddPropertyTest extends BaseClass{
 		loginpg.clickLogIn();
 		logger.info("Clicked on login button..");
 		Thread.sleep(5000);
-	}
+//	}
 		
-	public void AddProperty() throws InterruptedException 
-	{
+//	public void AddProperty() throws InterruptedException 
+//	{
 		
 		logger.info("***************Add property starts*****************");
 		

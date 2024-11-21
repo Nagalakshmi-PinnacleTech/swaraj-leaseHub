@@ -1,7 +1,10 @@
 package com.swaraj.pageobjects;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -32,11 +35,28 @@ public class tenantPage {
 	WebElement tenatEmail_txt;
 	@FindBy(xpath = "//input[@id='idno']") 
 	WebElement IDnum_txt;
-	
-	@FindBy(xpath = "//button[normalize-space()='Next']") 
+	@FindBy(xpath = "//button[@class=\"btn btn-CancelNext btn-green ml-3 \"]") 
 	WebElement next_btn;
 	
-	
+//	Agreement Detail page
+	@FindBy(xpath = "//div[@id=\"react-select-14-placeholder\"]") 
+	WebElement agreementType_DD;
+	@FindBy(xpath = "//span[normalize-space()='Day dd-mm-yyyy']") 
+	WebElement startDate_calPop_up;
+	@FindBy(xpath = "//button[@class='rdrDay rdrDayStartOfMonth']//span[@class='rdrDayNumber']") 
+	WebElement clickFirstdate;
+	@FindBy(xpath = "//div[normalize-space()='Done']") 
+	WebElement clickDone;
+	@FindBy(xpath = "//input[@id='leaseDuration']") 
+	WebElement leaseDuration;
+	@FindBy(xpath = "//input[@id='depositAmt']") 
+	WebElement depoAmt;
+	@FindBy(xpath = "//input[@id='fileno']") 
+	WebElement filenum;
+	@FindBy(xpath = "//input[@id='firmName']") 
+	WebElement firmName;
+	@FindBy(xpath = "//input[@id='attachments']") 
+	WebElement attachment;
 	
 	//identify action on webelement
 	public void clickTenantTab() 
@@ -79,6 +99,49 @@ public class tenantPage {
 	{
 		next_btn.click();
 	}
-				
-
+	
+	public void selectType() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(agreementType_DD).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void click_startDt_CalPopup() 
+	{
+		startDate_calPop_up.click();
+		clickFirstdate.click();
+		clickDone.click();
+	}
+	
+	public void enterleaseDuration(String agreeDuration) 
+	{
+		leaseDuration.sendKeys(agreeDuration);
+	}
+	
+	public void enterdepoAmt(String enterdepoAmt) 
+	{
+		depoAmt.sendKeys(enterdepoAmt);
+	}
+	
+	public void enterfileNum(String enterfileNum) 
+	{
+		filenum.sendKeys(enterfileNum);
+	} 
+	
+	public void enterfirmName(String enterFirmName) 
+	{
+		firmName.sendKeys(enterFirmName);
+	}
+	
+	public void uploadAttachment(String uploadAttachment) 
+	{
+		attachment.sendKeys(uploadAttachment);
+	}
+	
+	
+	
 }

@@ -36,17 +36,17 @@ public class propertyPage {
 		@FindBy(xpath = "//textarea[@id='propertyAddress']") 
 		WebElement propAdds_txt;
 		
-		@FindBy(xpath = "(//div[@class=\" css-1w5oz2q-indicatorContainer\"])[1]") 
+		@FindBy(xpath = "//span[normalize-space()='Select Type']") 
 		WebElement type_DD;
 //		@FindBy(xpath = "//div[@class=' css-14s42b7-singleValue']") 
 //		WebElement commercial_DD;
 		
-		@FindBy(xpath = "//div[@class=' css-78rtvi']") 
+		@FindBy(xpath = "//div[@class='reactSel__input-container css-78rtvi']") 
 		WebElement state_DD;
 		@FindBy(xpath = "//*[text()='Karnataka']") 
 		WebElement karnataka_DD;
 		
-		@FindBy(xpath = "//span[normalize-space()='Select Location']") 
+		@FindBy(className = "reactSel__control css-1uwol08-control") 
 		WebElement location_DD;		
 		@FindBy(xpath = "//div[contains(@class,'css-14s42b7-singleValue')][normalize-space()='Loc1']") 
 		WebElement Loc1_DD;
