@@ -21,7 +21,7 @@ public class tenantPage {
 	}
 
 	//identify webelements
-	@FindBy(xpath = "//a[normalize-space()='Tenants']") 
+	@FindBy(xpath = "//div[@class=\"center-header\"]/descendant::a[@class=\"topBarHead\" and normalize-space()='Tenants']") 
 	WebElement tenant_tab;
 	@FindBy(xpath = "//button[normalize-space()='Add Tenant']//*[name()='svg']") 
 	WebElement add_tenant_btn;
@@ -57,6 +57,24 @@ public class tenantPage {
 	WebElement firmName;
 	@FindBy(xpath = "//input[@id='attachments']") 
 	WebElement attachment;
+	@FindBy(xpath = "//span[normalize-space()='Day dd-mm-yyyy']") 
+	WebElement rentPayFromCalPopup;
+	@FindBy(xpath = "//button[@class='rdrDay rdrDayWeekend rdrDayStartOfWeek']//span[contains(text(),'3')]") 
+	WebElement click3date;
+	@FindBy(xpath = "//div[normalize-space()='Done']") 
+	WebElement clickDone2;
+	@FindBy(xpath = "//textarea[@id='notes']") 
+	WebElement notes;
+	@FindBy(xpath = "//div[@id='react-select-15-placeholder']") 
+	WebElement selectProp;
+	@FindBy(xpath = "//div[@class='tenant-input-grid mb-1_5']//div//div[@class='tenant-input-container mt-2']//div[@class='reactSel__value-container css-5a92zu']") 
+	WebElement selectUnit;
+	@FindBy(xpath = "//div[@id='react-select-24-placeholder']") 
+	WebElement storeType;
+	@FindBy(xpath = "//div[@id='react-select-25-placeholder']") 
+	WebElement category;
+	@FindBy(xpath = "//button[normalize-space()='Add Property']") 
+	WebElement addProp_btn;
 	
 	//identify action on webelement
 	public void clickTenantTab() 
@@ -142,6 +160,61 @@ public class tenantPage {
 		attachment.sendKeys(uploadAttachment);
 	}
 	
+	public void rentPayDate() 
+	{
+		rentPayFromCalPopup.click();
+		click3date.click();
+		clickDone2.click();
+	}
 	
+	public void writeNotes(String writeNotes) 
+	{
+		notes.sendKeys(writeNotes);
+	}
+	
+	public void selecProp() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(selectProp).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN, Keys.DOWN, Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void selectUnit() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(selectUnit).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN,Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void storeType() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(storeType).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void category() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(category).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void clickAddProp_btn() 
+	{
+		addProp_btn.click();
+	}
 	
 }

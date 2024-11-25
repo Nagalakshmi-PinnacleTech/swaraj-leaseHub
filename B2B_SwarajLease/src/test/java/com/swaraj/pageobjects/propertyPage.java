@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 public class propertyPage {
 	
 	WebDriver ldriver;
@@ -25,7 +26,7 @@ public class propertyPage {
 	}
 
 	//identify webelements
-		@FindBy(xpath = "(//a[@class='topBarHead'])[1]") 
+		@FindBy(xpath = "//div[@class=\"center-header\"]/descendant::a[@class=\"topBarHead\" and normalize-space()='Property']") 
 		WebElement property_tab;
 		
 		@FindBy(xpath = "//button[normalize-space()='Add Property']//*[name()='svg']") 
@@ -69,9 +70,13 @@ public class propertyPage {
 		
 		
 		//identify action on webelement
-		public void clickPropTab() 
+		public void clickPropTab() throws InterruptedException 
 		{
 			property_tab.click();
+			Thread.sleep(2000);
+//			Actions action = new Actions(ldriver);
+//			action.moveToElement(property_tab).click().build().perform();
+//			
 		}
 		
 		public void clickAddproperty_btn() 
@@ -91,8 +96,6 @@ public class propertyPage {
 		}
 		
 		//select property type
-		
-
 		public void selectType() throws InterruptedException 
 		{
 			Actions action = new Actions(ldriver);

@@ -23,10 +23,10 @@ public class TC1_WebsiteLoginTest extends BaseClass {
 
 		loginPage loginpg = new loginPage(driver);
 
-		loginpg.enterEmailAddress("newuser@gmail.com");
+		loginpg.enterEmailAddress("latestuser@gmail.com");
 		logger.info("Entered email address");
 
-		loginpg.enterPassword("newuser@gmail.com@1");
+		loginpg.enterPassword("latestuser@gmail.com@1");
 		logger.info("Entered password");
 
 		loginpg.clickLogIn();
