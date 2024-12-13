@@ -26,7 +26,8 @@ public class propertyPage {
 	}
 
 	//identify webelements
-		@FindBy(xpath = "//div[@class=\"center-header\"]/descendant::a[@class=\"topBarHead\" and normalize-space()='Property']") 
+//		@FindBy(xpath = "//div[@class=\"center-header\"]/descendant::a[@class=\"topBarHead\" and normalize-space()='Property']") 
+		@FindBy(css = "#property-admin")
 		WebElement property_tab;
 		
 		@FindBy(xpath = "//button[normalize-space()='Add Property']//*[name()='svg']") 
@@ -72,6 +73,7 @@ public class propertyPage {
 		//identify action on webelement
 		public void clickPropTab() throws InterruptedException 
 		{
+			Thread.sleep(2000);
 			property_tab.click();
 			Thread.sleep(2000);
 //			Actions action = new Actions(ldriver);

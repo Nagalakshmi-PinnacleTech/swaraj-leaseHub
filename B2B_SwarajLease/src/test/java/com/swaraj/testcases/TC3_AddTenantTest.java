@@ -25,10 +25,10 @@ public class TC3_AddTenantTest extends BaseClass {
 
 		loginPage loginpg = new loginPage(driver);
 
-		loginpg.enterEmailAddress("newuser@gmail.com");
+		loginpg.enterEmailAddress("beta@gmail.com");
 		logger.info("Entered email address");
 
-		loginpg.enterPassword("newuser@gmail.com@1");
+		loginpg.enterPassword("beta@gmail.com@1");
 		logger.info("Entered password");
 
 		loginpg.clickLogIn();
@@ -38,31 +38,39 @@ public class TC3_AddTenantTest extends BaseClass {
 		logger.info("***************Add Tenant starts*****************");
 			
 		tenantPage tenantpg = new tenantPage(driver);
-		//Tenant Info
+		//*****************Tenant Info*****************
+		tenantpg.clickclose_icon();
 		tenantpg.clickTenantTab();
 		tenantpg.clickAddTenantBtn();
 		tenantpg.enterTenantName("Tenant3");
-		tenantpg.entertenatEmail("tenant2@gmail.com");
+		tenantpg.entertenatEmail("tenant3@gmail.com");
 		tenantpg.enterPhoneNum("5566443322");
 		tenantpg.enterIDnum_txt("123456789");
 		tenantpg.enterTenantAddress("Mysore");
 		tenantpg.click_Nextbtn();
 		
-		//Agreement Details
+		//*****************Agreement Details******************8
 		tenantpg.selectType();
 		tenantpg.click_startDt_CalPopup();
+		tenantpg.standby_month();
+		tenantpg.rentCollectionType();
+		tenantpg.buffer_days();
 		tenantpg.enterleaseDuration("6");
-		tenantpg.enterdepoAmt("40000");
 		tenantpg.enterfileNum("123");
 		tenantpg.enterfirmName("xyz");
-		tenantpg.uploadAttachment("C:\\Users\\Nagalakshmi S\\Downloads\\c17e51b7-1a2b-4655-840a-8f30ffd1679a (1).pdf");
-		tenantpg.rentPayDate();
+		tenantpg.uploadAttachment("C:\\Users\\Nagalakshmi S\\Downloads\\permsiision-Model.pdf");
+		tenantpg.enterdepoAmt("40000");
+//		tenantpg.rentPayDate();
 		tenantpg.writeNotes("abcdefghiujklmnop");
 		tenantpg.selecProp();
 		tenantpg.selectUnit();
 //		tenantpg.storeType();
 //		tenantpg.category();
 		tenantpg.clickAddProp_btn();
+		tenantpg.scrollToBottom();
+		tenantpg.nextBtn();
+		
+		//************Bills Info******************
 		
 	}
 
