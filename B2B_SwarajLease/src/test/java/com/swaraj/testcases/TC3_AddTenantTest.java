@@ -42,8 +42,8 @@ public class TC3_AddTenantTest extends BaseClass {
 		tenantpg.clickclose_icon();
 		tenantpg.clickTenantTab();
 		tenantpg.clickAddTenantBtn();
-		tenantpg.enterTenantName("Tenant3");
-		tenantpg.entertenatEmail("tenant3@gmail.com");
+		tenantpg.enterTenantName("Tenant5");
+		tenantpg.entertenatEmail("tenant5@gmail.com");
 		tenantpg.enterPhoneNum("5566443322");
 		tenantpg.enterIDnum_txt("123456789");
 		tenantpg.enterTenantAddress("Mysore");
@@ -71,7 +71,15 @@ public class TC3_AddTenantTest extends BaseClass {
 		tenantpg.nextBtn();
 		
 		//************Bills Info******************
-		
+		tenantpg.blsPg_prop();
+		tenantpg.blsPg_unit();
+		tenantpg.bill_name("abcdefghijkl");
+		tenantpg.bill_cat();
+		tenantpg.bill_type();
+		tenantpg.category();
+		tenantpg.bufferDays();
+		tenantpg.add_bill();
+		tenantpg.finish_btn();
 	}
 
 }

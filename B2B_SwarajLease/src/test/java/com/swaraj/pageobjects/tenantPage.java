@@ -92,9 +92,33 @@ public class tenantPage {
 	//___________Bills Info page__________
 	@FindBy(xpath = "//div[@class='tenant-input-grid mb-1_5']//div[1]//div[1]//div[1]//div[2]//div[1]//*[name()='svg']") 
 	WebElement blsPg_prop;
-	@FindBy(xpath = "//body//div[@id='root']//div[@class='col-12']//div[@class='col-12']//div[2]//div[1]//div[1]//div[2]//div[1]") 
-	WebElement blsPg_unit;
 	
+	@FindBy(xpath = "//body//div[@id='root']//div[@class='col-12']//div[@class='col-12']//div[2]//div[1]//div[1]//div[2]//div[1]") 
+	WebElement blsPg_unit; 
+	
+	@FindBy(xpath = "//input[@id='billName']") 
+	WebElement bill_name;
+	
+	@FindBy(xpath = "//div[@id='root']//div[4]//div[1]//div[1]//div[2]//div[1]//*[name()='svg']") 
+	WebElement bill_cat;
+	
+	@FindBy(xpath = "//div[5]//div[1]//div[1]//div[2]//div[1]//*[name()='svg']") 
+	WebElement bill_type;
+	
+	@FindBy(xpath = "//div[6]//div[1]//div[1]//div[2]//div[1]") 
+	WebElement refunding;
+	
+	@FindBy(xpath = "//div[7]//div[1]//div[1]//div[2]//div[1]//*[name()='svg']") 
+	WebElement bufferDays;
+	
+	@FindBy(xpath = "//button[normalize-space()='Add Bill']//*[name()='svg']")
+	WebElement addBill ;
+	
+	@FindBy(xpath = "//button[normalize-space()='Finish']") 
+	WebElement finish_btn;
+	
+	
+	 
 	
 	//identify action on webelement
 	public void clickclose_icon() throws InterruptedException 
@@ -283,5 +307,81 @@ public class tenantPage {
 	{
 		nextBtn.click();
 	}
+	
+	public void blsPg_prop() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(blsPg_prop).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void blsPg_unit() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(blsPg_unit).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void bill_cat() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(bill_cat).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void bill_type() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(bill_type).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void refunding() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(refunding).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void bill_name(String billname) 
+	{
+		bill_name.sendKeys(billname);
+	}
+	
+	public void bufferDays() throws InterruptedException 
+	{
+		Actions action = new Actions(ldriver);
+		action.moveToElement(bufferDays).click().build().perform();
+		Thread.sleep(2000);
+		Actions keyDown = new Actions(ldriver); 
+		keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.ENTER)).perform();
+		Thread.sleep(2000);
+	}
+	
+	public void add_bill() 
+	{
+		bill_name.click();
+	}
+	
+	public void finish_btn() 
+	{
+		finish_btn.click();
+	}
+	
 	
 }
