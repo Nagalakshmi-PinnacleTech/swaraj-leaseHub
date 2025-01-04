@@ -25,5 +25,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Nagalakshmi S/.m2/repository/org/apache/logging/log4j/log4j-core/2.24.0/log4j-core-2.24.0.jar" sourcepath="C:/Users/Nagalakshmi S/.m2/repository/org/apache/logging/log4j/log4j-core/2.24.0/log4j-core-2.24.0-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.apache.logging.log4j"/>
+			<attribute name="maven.artifactId" value="log4j-core"/>
+			<attribute name="maven.version" value="2.24.0"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
