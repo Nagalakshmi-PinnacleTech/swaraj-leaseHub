@@ -51,6 +51,7 @@ public class TC5_SmokeTest extends BaseClass{
 		logger.info("Clicked on announcement icon");
 		
 		smokepg.clickprofile_dd();
-
+		smokepg.setting_option();
+		smokepg.Profile_dd_option();
 	}
 }

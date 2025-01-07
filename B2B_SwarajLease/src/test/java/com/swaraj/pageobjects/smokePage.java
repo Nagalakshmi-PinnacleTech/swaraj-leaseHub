@@ -39,8 +39,35 @@ public class smokePage {
 		
 		@FindBy(xpath = "(//*[name()='svg'])[11]")
 		WebElement profile_dd;
+		
 		@FindBy(xpath = "//button[normalize-space()='Settings']")
 		WebElement settings;
+		@FindBy(xpath = " //a[normalize-space()='Advance Settings']")
+		WebElement adv_settings;
+		@FindBy(xpath = "//a[normalize-space()='Integrations']")
+		WebElement set_integration;
+		@FindBy(xpath = "//a[normalize-space()='Training']")
+		WebElement set_training;
+		@FindBy(xpath = "//a[normalize-space()='Support']")
+		WebElement set_support;
+		@FindBy(xpath = "//a[normalize-space()='Users']")
+		WebElement set_users;
+		
+		@FindBy(xpath = "//button[normalize-space()='View Profile']")
+		WebElement view_profile;
+		@FindBy(css = "div[class='flex-center top-btns undefined'] svg")
+		WebElement close_pop;
+		@FindBy(xpath = "//button[normalize-space()='Dues']")
+		WebElement dues;
+		@FindBy(xpath = "//button[normalize-space()='Inc-Exp']")
+		WebElement inc_exp;
+		@FindBy(xpath = "//button[normalize-space()='Reset Password']")
+		WebElement reset_pw;
+		@FindBy(css = "div[class='flex-center top-btns undefined'] svg")
+		WebElement close_pop2;
+		@FindBy(xpath = "//button[normalize-space()='Logout']")
+		WebElement logout;
+		
 		
 		//identify action on webelement
 		
@@ -105,6 +132,49 @@ public class smokePage {
 			Thread.sleep(2000);
 			settings.click();
 		}
+		
+		public void setting_option() throws InterruptedException 
+		{
+			adv_settings.click();
+			Thread.sleep(2000);
+			set_integration.click();
+			Thread.sleep(2000);
+			set_training.click();
+			Thread.sleep(2000);
+			set_support.click();
+			Thread.sleep(2000);
+			set_users.click();
+			Thread.sleep(3000);
+		}
+		
+		public void Profile_dd_option() throws InterruptedException 
+		{
+			profile_dd.click();
+			Thread.sleep(2000);
+			view_profile.click();
+			Thread.sleep(2000);
+			close_pop.click();
+			Thread.sleep(2000);
+			profile_dd.click();
+			Thread.sleep(2000);
+			dues.click();
+			Thread.sleep(2000);
+			profile_dd.click();
+			Thread.sleep(2000);
+			inc_exp.click();
+			Thread.sleep(2000);
+			profile_dd.click();
+			Thread.sleep(2000);
+			reset_pw.click();
+			Thread.sleep(2000);
+			close_pop2.click();
+			Thread.sleep(2000);
+			profile_dd.click();
+			Thread.sleep(2000);
+			logout.click();
+		}
+		
+		
 }
 
 
