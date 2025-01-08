@@ -32,10 +32,7 @@ public class loginPage {
 		@FindBy(xpath = "//button[@type='submit']")
 		WebElement submitLogin;
 		
-		
 		//identify action on webelement
-		
-		
 		//ACTIONS METHODS FOR ALREADY REGISTERED USERS
 		
 		public void enterEmailAddress(String emailAdd) 
@@ -48,7 +45,6 @@ public class loginPage {
 			registeredUsersPwd.sendKeys(pwd);
 		}
 
-		
 		public void clickLogIn()
 		{
 			submitLogin.click();
