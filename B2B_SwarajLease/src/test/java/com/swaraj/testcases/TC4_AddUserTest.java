@@ -26,10 +26,10 @@ public class TC4_AddUserTest  extends BaseClass {
 
 		loginPage loginpg = new loginPage(driver);
 
-		loginpg.enterEmailAddress("beatrice@gmail.com");
+		loginpg.enterEmailAddress("seconduser@gmail.com");
 		logger.info("Entered email address");
 
-		loginpg.enterPassword("beatrice@gmail.com@1");
+		loginpg.enterPassword("Aa@246810");
 		logger.info("Entered password");
 
 		loginpg.clickLogIn();
@@ -38,8 +38,8 @@ public class TC4_AddUserTest  extends BaseClass {
 
 		logger.info("***************Add User starts*****************");
 		
-		tenantPage tpg = new tenantPage(driver);
-		tpg.clickclose_icon();
+//		tenantPage tpg = new tenantPage(driver);
+//		tpg.clickclose_icon();
 		
 		homePage hpg = new homePage(driver);
 		

@@ -28,6 +28,7 @@ public class tenantPage {
 	WebElement close_icon;
 	@FindBy(xpath = "//div[@class=\"center-header\"]/descendant::a[@class=\"topBarHead\" and normalize-space()='Tenants']") 
 	WebElement tenant_tab;
+//	@FindBy(css = "#tenant-admin")
 	@FindBy(xpath = "//button[normalize-space()='Add Tenant']//*[name()='svg']") 
 	WebElement add_tenant_btn;
 	@FindBy(xpath = "//input[@id='keyword']") 
@@ -36,7 +37,8 @@ public class tenantPage {
 	WebElement tenatAddress_txt;
 	@FindBy(xpath = "//div[@class='tenant-input-container']//input[@id='keyword']") 
 	WebElement phoneNum_txt;
-	@FindBy(xpath = "//input[@id='email']") 
+	@FindBy (css = "#email")
+//	@FindBy(xpath = "//input[@id='email']") 
 	WebElement tenatEmail_txt;
 	@FindBy(xpath = "//input[@id='idno']") 
 	WebElement IDnum_txt;

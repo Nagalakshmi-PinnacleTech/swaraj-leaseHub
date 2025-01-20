@@ -24,10 +24,10 @@ public class TC2_AddPropertyTest extends BaseClass{
 
 		loginPage loginpg = new loginPage(driver);
 
-		loginpg.enterEmailAddress("newuser@gmail.com");
+		loginpg.enterEmailAddress("seconduser@gmail.com");
 		logger.info("Entered email address");
 
-		loginpg.enterPassword("newuser@gmail.com@1");
+		loginpg.enterPassword("Aa@246810");
 		logger.info("Entered password");
 
 		loginpg.clickLogIn();

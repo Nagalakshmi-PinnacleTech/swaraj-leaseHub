@@ -27,7 +27,7 @@ public class propertyPage {
 
 	//identify webelements
 //		@FindBy(xpath = "//div[@class=\"center-header\"]/descendant::a[@class=\"topBarHead\" and normalize-space()='Property']") 
-		@FindBy(css = "#property-admin")
+		@FindBy(xpath = "//a[@id='property-admin']")
 		WebElement property_tab;
 		
 		@FindBy(xpath = "//button[normalize-space()='Add Property']//*[name()='svg']") 

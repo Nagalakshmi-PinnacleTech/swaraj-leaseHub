@@ -1,14 +1,18 @@
 package com.swaraj.pageobjects;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 public class add_InstitutePage {
 	WebDriver ldriver;
 	private WebDriverWait wait;
+	private JavascriptExecutor jsExecutor;
 
 	//constructor
 	public add_InstitutePage(WebDriver rdriver)
@@ -19,9 +23,11 @@ public class add_InstitutePage {
 
 	//identify webelements
 		@FindBy(xpath = "//a[normalize-space()='All Institute']")
-		WebElement allInstitute_tab; 
-		@FindBy(xpath = "//button[normalize-space()='Add Institute']")
+		WebElement allInstitute_tab;
+//		@FindBy(xpath = "(//div[normalize-space()='Add Institute'])[2]")
+		@FindBy(css = ".btn-primary_1.btn-green")
 		WebElement addInstitute_btn;
+		
 		@FindBy(xpath = "//input[@id='name']")
 		WebElement firstname_txt;
 		@FindBy(xpath = "//input[@id='phone']")
@@ -44,10 +50,9 @@ public class add_InstitutePage {
 		WebElement sub_end;
 		@FindBy(xpath = "div[class='ant-popover css-1x0dypw css-1x0dypw ant-popover-placement-bottom'] button:nth-child(2) span:nth-child(2)")
 		WebElement sel_firstdate;
-//		@FindBy(xpath = "//div[@class='form_input']//div//span[@class='mr-4'][normalize-space()='Day dd-mm-yyyy']")
-//		WebElement sub_end;
+		@FindBy(xpath = " //button[normalize-space()='Add']")
+		WebElement AddBtn;
 //		
-		
 		//identify action on webelement
 		
 		public void allInstitute_tab() throws InterruptedException 
@@ -56,7 +61,7 @@ public class add_InstitutePage {
 			Thread.sleep(2000);
 		}
 		
-		public void addInstitute_btn() throws InterruptedException 
+		public void addInstitute_btn() throws InterruptedException
 		{
 			addInstitute_btn.click();
 			Thread.sleep(2000);
@@ -105,6 +110,12 @@ public class add_InstitutePage {
 			sel_firstdate.click();
 			Thread.sleep(5000);
 			click_done.click();
+		}
+		
+		public void clk_addInstitute() throws InterruptedException 
+		{
+			AddBtn.click();
+			Thread.sleep(2000);
 		}
 
 }

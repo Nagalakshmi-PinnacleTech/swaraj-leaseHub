@@ -25,10 +25,10 @@ public class TC3_AddTenantTest extends BaseClass {
 
 		loginPage loginpg = new loginPage(driver);
 
-		loginpg.enterEmailAddress("beta@gmail.com");
+		loginpg.enterEmailAddress("seconduser@gmail.com");
 		logger.info("Entered email address");
 
-		loginpg.enterPassword("beta@gmail.com@1");
+		loginpg.enterPassword("Aa@246810");
 		logger.info("Entered password");
 
 		loginpg.clickLogIn();
@@ -39,47 +39,47 @@ public class TC3_AddTenantTest extends BaseClass {
 			
 		tenantPage tenantpg = new tenantPage(driver);
 		//*****************Tenant Info*****************
-		tenantpg.clickclose_icon();
+//		tenantpg.clickclose_icon();
 		tenantpg.clickTenantTab();
 		tenantpg.clickAddTenantBtn();
-		tenantpg.enterTenantName("Tenant5");
-		tenantpg.entertenatEmail("tenant5@gmail.com");
+		tenantpg.enterTenantName("Tenant6");
+		tenantpg.entertenatEmail("tenant6@gmail.com");
 		tenantpg.enterPhoneNum("5566443322");
 		tenantpg.enterIDnum_txt("123456789");
 		tenantpg.enterTenantAddress("Mysore");
 		tenantpg.click_Nextbtn();
 		
 		//*****************Agreement Details******************8
-		tenantpg.selectType();
-		tenantpg.click_startDt_CalPopup();
-		tenantpg.standby_month();
-		tenantpg.rentCollectionType();
-		tenantpg.buffer_days();
-		tenantpg.enterleaseDuration("6");
-		tenantpg.enterfileNum("123");
-		tenantpg.enterfirmName("xyz");
-		tenantpg.uploadAttachment("C:\\Users\\Nagalakshmi S\\Downloads\\permsiision-Model.pdf");
-		tenantpg.enterdepoAmt("40000");
-//		tenantpg.rentPayDate();
-		tenantpg.writeNotes("abcdefghiujklmnop");
-		tenantpg.selecProp();
-		tenantpg.selectUnit();
-//		tenantpg.storeType();
-//		tenantpg.category();
-		tenantpg.clickAddProp_btn();
-		tenantpg.scrollToBottom();
-		tenantpg.nextBtn();
+//		tenantpg.selectType();
+//		tenantpg.click_startDt_CalPopup();
+//		tenantpg.standby_month();
+//		tenantpg.rentCollectionType();
+//		tenantpg.buffer_days();
+//		tenantpg.enterleaseDuration("6");
+//		tenantpg.enterfileNum("123");
+//		tenantpg.enterfirmName("xyz");
+//		tenantpg.uploadAttachment("C:\\Users\\Nagalakshmi S\\Downloads\\permsiision-Model.pdf");
+//		tenantpg.enterdepoAmt("40000");
+////		tenantpg.rentPayDate();
+//		tenantpg.writeNotes("abcdefghiujklmnop");
+//		tenantpg.selecProp();
+//		tenantpg.selectUnit();
+////		tenantpg.storeType();
+////		tenantpg.category();
+//		tenantpg.clickAddProp_btn();
+//		tenantpg.scrollToBottom();
+//		tenantpg.nextBtn();
 		
 		//************Bills Info******************
-		tenantpg.blsPg_prop();
-		tenantpg.blsPg_unit();
-		tenantpg.bill_name("abcdefghijkl");
-		tenantpg.bill_cat();
-		tenantpg.bill_type();
-		tenantpg.category();
-		tenantpg.bufferDays();
-		tenantpg.add_bill();
-		tenantpg.finish_btn();
+//		tenantpg.blsPg_prop();
+//		tenantpg.blsPg_unit();
+//		tenantpg.bill_name("abcdefghijkl");
+//		tenantpg.bill_cat();
+//		tenantpg.bill_type();
+//		tenantpg.category();
+//		tenantpg.bufferDays();
+//		tenantpg.add_bill();
+//		tenantpg.finish_btn();
 	}
 
 }

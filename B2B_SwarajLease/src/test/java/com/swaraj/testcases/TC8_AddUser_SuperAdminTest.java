@@ -4,13 +4,14 @@ import java.io.IOException;
 
 import org.testng.annotations.Test;
 
+import com.swaraj.pageobjects.addUser_SuperAdminPage;
+import com.swaraj.pageobjects.add_InstitutePage;
 import com.swaraj.pageobjects.loginPage;
 import com.swaraj.pageobjects.welcomePage;
-import com.swaraj.pageobjects.add_InstitutePage;
 
-public class TC7_Add_InstituteTest extends BaseClass{
+public class TC8_AddUser_SuperAdminTest extends BaseClass{
 	@Test
-	public void AddInstitute() throws IOException, InterruptedException 
+	public void AddUser_sprAdmin() throws IOException, InterruptedException 
 	{
 
 		logger.info("***************TestCase Verify Login starts*****************"); 
@@ -32,22 +33,9 @@ public class TC7_Add_InstituteTest extends BaseClass{
 		logger.info("Clicked on login button..");
 		Thread.sleep(5000);
 		
-		add_InstitutePage insti=new add_InstitutePage(driver);
-		insti.allInstitute_tab();
-		insti.addInstitute_btn();
-		insti.enterfirstname_txt("InstitutionAuto");
-		insti.enterphone_txt("9988776655");
-		insti.enteremail_txt("InstitutionAuto@gmail.com");
-		insti.enteraddress_txt("Karnataka");
-		insti.enterdescription_txt("äbcdefghijklmnopqrstuvwxyz");
-		insti.enterbilling_txt("50000");
-		insti.click_sub_start();
-		insti.clk_addInstitute();
+		addUser_SuperAdminPage userSA=new addUser_SuperAdminPage(driver);
+		userSA.click_adduser_btn();
 		
 		
-		
-		
-		
-		
-		}
+	}
 }
