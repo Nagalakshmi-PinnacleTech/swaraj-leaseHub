@@ -35,7 +35,14 @@ public class TC8_AddUser_SuperAdminTest extends BaseClass{
 		
 		addUser_SuperAdminPage userSA=new addUser_SuperAdminPage(driver);
 		userSA.click_adduser_btn();
-		
-		
+		userSA.click_addUser_btn();
+		userSA.select_institute();
+		userSA.enterUser_name("userTuesdayy_user");
+		userSA.enterUser_email("user246@gmail.com");
+		userSA.enterUser_phone("5566443322");
+		userSA.sel_role();
+		userSA.enterUser_address("wewwwjjkfjlkjfoiiouoiuoiuoo");
+		userSA.click_cancel();
+//		userSA.click_add();
 	}
 }
