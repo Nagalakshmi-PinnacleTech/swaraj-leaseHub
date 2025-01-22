@@ -39,5 +39,5 @@ public class TC9_Tenant_ActionTest extends BaseClass {
 //		tenantpg.clickclose_icon();
 		tenantpg.clickTenantTab();
 
-}
+	}
 }
