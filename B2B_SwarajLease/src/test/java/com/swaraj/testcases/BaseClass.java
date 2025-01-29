@@ -32,6 +32,8 @@ public class BaseClass {
 	
 	public static WebDriver driver;
 	public static Logger logger;
+	
+	
 
 	@BeforeClass
 	public void setup() throws InterruptedException
@@ -72,6 +74,7 @@ public class BaseClass {
 		
 		//Mazimize current window
 		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
 
 		//Delay execution for 5 seconds to view the maximize operation
 		Thread.sleep(5000);

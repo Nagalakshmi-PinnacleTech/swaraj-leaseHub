@@ -5,8 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.swaraj.pageobjects.loginPage;
 import com.swaraj.pageobjects.welcomePage;
-import org.testng.Assert;
-import org.testng.annotations.Test;
 
 public class TC1_WebsiteLoginTest extends BaseClass {
 	
