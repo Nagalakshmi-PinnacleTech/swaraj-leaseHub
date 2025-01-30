@@ -10,15 +10,18 @@ import java.time.Duration;
 
 public class DDTloginPage {
 	 private WebDriver driver;
-	    private WebDriverWait wait;
-
-	    @FindBy(id = "username")
+	 private WebDriverWait wait;
+ 
+//	 	@FindBy(xpath = "//a[@class=\"btn btn-homelogin rounded-pill py-2 px-5 \"]") 
+//		WebElement login_btn;
+	    
+	    @FindBy(xpath = "//input[@id=\"email\"]")
 	    private WebElement usernameField;
 
 	    @FindBy(id = "password")
 	    private WebElement passwordField;
 
-	    @FindBy(id = "loginButton")
+	    @FindBy(xpath = "//button[@class=\"btn-primary_1 btn-login flex-center \"]")
 	    private WebElement loginButton;
 
 	    @FindBy(id = "errorMessage")
@@ -29,8 +32,14 @@ public class DDTloginPage {
 	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	        PageFactory.initElements(driver, this);
 	    }
+	    
+	  //identify action on webelement
+//	   public void clickOnLogin()
+//	  		{
+//	  			login_btn.click();
+//	  		}
 
-	    public void enterUsername(String username) {
+	   public void enterUsername(String username) {
 	        wait.until(ExpectedConditions.visibilityOf(usernameField)).sendKeys(username);
 	    }
 

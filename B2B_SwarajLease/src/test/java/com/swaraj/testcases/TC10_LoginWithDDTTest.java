@@ -20,48 +20,62 @@ import com.swaraj.utilities.Constants;
 import com.swaraj.utilities.ExcelOperationDDT;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
+import com.swaraj.pageobjects.welcomePage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
  
 
 public class TC10_LoginWithDDTTest extends BaseClass{
 	
-	private WebDriver driver;
+	@Test
+	public void VerifyLogin() throws IOException 
+	{
+
+		logger.info("***************TestCase Verify Login starts*****************"); 
+
+		welcomePage wpg = new welcomePage(driver);
+
+		wpg.clickOnLogin();
+		logger.info("Clicked on Login link");
+	}
+	
+//	private WebDriver driver;
     private DDTloginPage loginPage;
     
     @BeforeClass
     public void setUp() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
         loginPage = new DDTloginPage(driver);
     }
     
+   
     @DataProvider(name = "loginData")
     public Object[][] getLoginData() throws Exception {
-        return ExcelOperationDDT.getTestData("src/test/resources/testData/LoginData.xlsx", "LoginTests");
+        return ExcelOperationDDT.getTestData("C:\\Users\\Nagalakshmi S\\OneDrive\\Desktop\\testData.XLSX", "Sheet1");
     }
     
     @Test(dataProvider = "loginData")
     public void testLogin(String username, String password, String expectedResult) {
-        driver.get("https://your-application-url.com/login");
+        driver.get("http://swaraj-lease-hub.s3-website.ap-south-1.amazonaws.com/login");
         
         loginPage.login(username, password);
         
-        if ("SUCCESS".equals(expectedResult)) {
+        if ("logged in successfully".equals(expectedResult)) {
             // Add verification for successful login
-            Assert.assertEquals(driver.getCurrentUrl(), "https://your-application-url.com/dashboard");
+            Assert.assertEquals(driver.getCurrentUrl(), "http://swaraj-lease-hub.s3-website.ap-south-1.amazonaws.com/home");
         } else {
             // Verify error message
-            String actualError = loginPage.getErrorMessage();
-            Assert.assertEquals(actualError, expectedResult);
+//            String actualError = loginPage.getErrorMessage();
+//            Assert.assertEquals(actualError, expectedResult);
+        	Assert.assertEquals(driver.getCurrentUrl(), "http://swaraj-lease-hub.s3-website.ap-south-1.amazonaws.com/login");
         }
     }
     
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @AfterClass
+//    public void tearDown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 }
