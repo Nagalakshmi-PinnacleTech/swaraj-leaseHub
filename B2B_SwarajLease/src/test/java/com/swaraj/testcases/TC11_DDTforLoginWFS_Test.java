@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.Keys;
 
 import java.io.File;
@@ -70,11 +71,10 @@ public static void main(String[] args) throws InterruptedException, IOException 
                } 
             else {
                 System.out.println("Login failed for: " + username);
-                email.clear();
-                Thread.sleep(1000);
-                passwd.clear();
-                Thread.sleep(1000);
-            }
+                Actions actions = new Actions(driver);
+                actions.moveToElement(email).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
+                actions.moveToElement(passwd).doubleClick().click().sendKeys(Keys.BACK_SPACE).perform();
+        }
     }
         
 //        driver.navigate().back();
