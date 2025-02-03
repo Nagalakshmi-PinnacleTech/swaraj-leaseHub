@@ -36,7 +36,7 @@ public class ExtentListenerClass implements ITestListener {
 		reports.setSystemInfo("Machine:", "testpc1");
 		reports.setSystemInfo("OS", "windows 11");
 		reports.setSystemInfo("browser:", readConfig.getBrowser());
-		reports.setSystemInfo("user name:", "Prachi");
+		reports.setSystemInfo("user name:", "Nagalakshmi");
 		
 		//configuration to change look and feel of report
 		htmlReporter.config().setDocumentTitle("Extent Listener Report Demo");

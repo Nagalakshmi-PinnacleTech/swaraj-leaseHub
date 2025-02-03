@@ -8,19 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.Keys;
-
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TC11_DDTforLoginWFS_Test {
 	
-
 public static void main(String[] args) throws InterruptedException, IOException {
 		
 		WebDriverManager.chromedriver().setup(); //base
@@ -37,7 +31,6 @@ public static void main(String[] args) throws InterruptedException, IOException 
 		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath("//a[normalize-space()='LOGIN']")).click();
-		Thread.sleep(5000);
 		
 		// Load the Excel file
         FileInputStream file = new FileInputStream(new File("C:\\\\Users\\\\Nagalakshmi S\\\\OneDrive\\\\Desktop\\\\testData.XLSX"));

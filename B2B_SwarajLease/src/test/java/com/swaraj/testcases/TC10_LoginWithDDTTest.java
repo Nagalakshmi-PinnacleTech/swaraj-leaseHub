@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 
 
 import com.swaraj.pageobjects.DDTloginPage;
+import com.swaraj.pageobjects.loginPage;
 import com.swaraj.pageobjects.welcomePage;
 import com.swaraj.utilities.Constants;
 import com.swaraj.utilities.ExcelOperationDDT;
@@ -23,11 +24,10 @@ import org.testng.annotations.*;
 import com.swaraj.pageobjects.welcomePage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
- 
 
 public class TC10_LoginWithDDTTest extends BaseClass{
 	
-	@Test
+	@BeforeClass
 	public void VerifyLogin() throws IOException 
 	{
 
@@ -37,19 +37,19 @@ public class TC10_LoginWithDDTTest extends BaseClass{
 
 		wpg.clickOnLogin();
 		logger.info("Clicked on Login link");
+		
 	}
 	
-//	private WebDriver driver;
+	private WebDriver driver;
     private DDTloginPage loginPage;
     
-    @BeforeClass
-    public void setUp() {
+    @Test
+    public void DDT() {
 //        driver = new ChromeDriver();
 //        driver.manage().window().maximize();
-        loginPage = new DDTloginPage(driver);
+    	loginPage  = new DDTloginPage(driver);
     }
     
-   
     @DataProvider(name = "loginData")
     public Object[][] getLoginData() throws Exception {
         return ExcelOperationDDT.getTestData("C:\\Users\\Nagalakshmi S\\OneDrive\\Desktop\\testData.XLSX", "Sheet1");
@@ -64,7 +64,9 @@ public class TC10_LoginWithDDTTest extends BaseClass{
         if ("logged in successfully".equals(expectedResult)) {
             // Add verification for successful login
             Assert.assertEquals(driver.getCurrentUrl(), "http://swaraj-lease-hub.s3-website.ap-south-1.amazonaws.com/home");
-        } else {
+        } 
+        else 
+        	{
             // Verify error message
 //            String actualError = loginPage.getErrorMessage();
 //            Assert.assertEquals(actualError, expectedResult);

@@ -1,22 +1,31 @@
 package com.swaraj.pageobjects;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class loginPage {
 	//1. create object of webdriver
-		WebDriver ldriver;
-
+//		WebDriver ldriver;
+	 private WebDriver driver;
+	 private WebDriverWait wait;
+	 
 		//constructor
-		public loginPage(WebDriver rdriver)
-		{
-			ldriver = rdriver;
-
-
-			PageFactory.initElements(rdriver, this);
-		}
+//		public loginPage(WebDriver rdriver)
+//		{
+//			ldriver = rdriver;
+//			PageFactory.initElements(rdriver, this);
+//		}
+		
+		public loginPage(WebDriver driver) {
+	        this.driver = driver;
+	        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	        PageFactory.initElements(driver, this);
+	    }
 
 
 		//identify webelements

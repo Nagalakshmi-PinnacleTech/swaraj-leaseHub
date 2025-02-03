@@ -17,8 +17,6 @@ public class welcomePage {
 		public welcomePage(WebDriver rdriver)
 		{
 			ldriver = rdriver;
-			
-
 			PageFactory.initElements(rdriver, this);
 		}
 
