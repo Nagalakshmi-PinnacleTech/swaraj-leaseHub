@@ -13,11 +13,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 import com.swaraj.reports.ReportTestManager;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 	protected WebDriver driver;
@@ -27,22 +32,31 @@ public class BaseTest {
 	private String browserType;
 	protected static Properties properties;
 	
-
-	@Parameters({"BrowserName"})
-	@BeforeMethod
-	public void setup(@Optional String browserName) {
+	@BeforeTest
+	public void setupSuite() {
 		userName = getConfig("UserName");
 		password = getConfig("Password");
 		appUrl = getConfig("Url");
 		browserType = getConfig("BrowserType");
+		
+	}
+	
+
+	@Parameters({"BrowserName"})
+//	@BeforeMethod
+	@Test
+	public void setup(@Optional String browserName) {
 		if(browserName != null) {
 			this.browserType = browserName;
 		}
 		if(browserType.equalsIgnoreCase("chrome")){
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		}else if(browserType.equalsIgnoreCase("edge")) {
+			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}else if(browserType.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}else {
 			throw new RuntimeException("Please provide valid value of browser");
@@ -53,6 +67,12 @@ public class BaseTest {
 		driver.get(appUrl);
 	}
 	
+	private String getConfig(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
@@ -64,7 +84,7 @@ public class BaseTest {
 			ReportTestManager.getTest().log(Status.PASS, message);
 	}
 	
-	public static String getConfig(String key) {
+	public static String getConfig1(String key) {
 		return properties.get(key).toString();
 	}
 	

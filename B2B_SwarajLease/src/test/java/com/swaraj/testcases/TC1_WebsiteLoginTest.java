@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import com.swaraj.pageobjects.loginPage;
 import com.swaraj.pageobjects.welcomePage;
 
-public class TC1_WebsiteLoginTest extends BaseClass {
+public class TC1_WebsiteLoginTest extends BaseClass{
 	
 	@Test
 	public void VerifyLogin() throws IOException 
